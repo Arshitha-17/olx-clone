@@ -50,17 +50,23 @@ function Header() {
             history.push('/login')
           }}>Logout</span>}
 
-        <div className="sellMenu">
-          <SellButton></SellButton>
-          <div className="sellMenuContent">
+<div className="sellMenu">
+      <SellButton></SellButton>
+      <div className="sellMenuContent">
+        {user ? (
+          <React.Fragment>
             <SellButtonPlus></SellButtonPlus>
-          
-            <span onClick={()=>{
-               history.push('/create')
-            }} >SELL</span>
-           
-          </div>
-        </div>
+            <span onClick={() => {
+              history.push('/create');
+            }}>SELL</span>
+          </React.Fragment>
+        ) : (
+          <span onClick={() => {
+            history.push('/login');
+          }}>SELL</span>
+        )}
+      </div>
+    </div>
       </div>
     </div>
   );
